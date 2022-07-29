@@ -1,7 +1,18 @@
-.titulo{
-    color: blue;
-    text-align: center;
+.caixa{
+    background-color: #ffffff;
 }
+
+.titulo{
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+.botao{
+    border-color: white!important;
+    background-color: #1976d2!important;
+    color: #ffffff!important;
+}
+
 
 .img{
     display: block;

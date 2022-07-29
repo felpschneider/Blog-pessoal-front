@@ -10,6 +10,7 @@ function Home() {
         direction="row"
         justifyContent="center"
         alignItems="center"
+        className="caixa"
       >
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20}>
@@ -31,7 +32,7 @@ function Home() {
               align="center"
               className="titulo"
             >
-              Expresse aqui os seus pensamentos e opiniões sobre música!
+              Expresse aqui os seus pensamentos e opiniões musicais!
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">
@@ -41,7 +42,7 @@ function Home() {
             </Button>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} >
           <img
             src="https://img.freepik.com/free-vector/rock-band-concept-illustration_114360-2835.jpg?w=740&t=st=1658934530~exp=1658935130~hmac=fac99ac1e4621381f643c7f5b3c23fc344be826c538b2d29ff9d08cea3766b17"
             alt=""
