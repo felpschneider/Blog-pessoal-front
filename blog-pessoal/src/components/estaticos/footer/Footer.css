@@ -1,14 +1,30 @@
 .box1{
-    background-color: #3F51B5;
-    height: 120px;
-}
-
-.box2{
-    background-color: #303F9F;
+    background-image: var(--gradiente-tema);
     height: 60px;
 }
 
-.redes{
+.box2{
+    background-image: linear-gradient(
+        178.2deg,
+        #9e0c21 10.9%,
+        #6a0716 62.6%
+      );
+    height: 60px;
+}
+
+.github-icon{
+    font-size: 40px !important;
+    color: white;
+    margin-left: 10px;
+}
+
+.linkedin-icon{
+    font-size: 50px !important;
+    margin: 0 10px;
+    color: white;
+}
+
+.instagram-icon{
     font-size: 50px !important;
     color: white;
 }

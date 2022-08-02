@@ -1,0 +1,16 @@
+.imagem-cadastro {
+  background-image: url(https://cdn.pixabay.com/photo/2019/10/20/21/21/close-up-4564714_960_720.jpg);
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: right;
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.textos-cadastrar{
+    font-weight: bold!important;
+}

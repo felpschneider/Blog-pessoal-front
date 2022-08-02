@@ -1,11 +1,14 @@
-.background-menu {
-  background-color: rgb(90, 95, 240);
-  background-color: linear-gradient(
-    45deg,
-    rgba(90, 95, 240, 1) 8%,
-    rgba(139, 106, 230, 1) 51%,
-    rgba(137, 11, 209, 1) 100%
+:root {
+  --gradiente-tema: linear-gradient(
+    178.2deg,
+    #760817 10.9%,
+    #9e0c21 62.6%
   );
+  
+}
+
+.background-menu {
+  background-image: var(--gradiente-tema)
 }
 
 .cursor {
