@@ -19,3 +19,8 @@
 .text-decoration-none {
   text-decoration: none;
 }
+
+.img-home{
+  color: aliceblue!important;
+  height: 20px;
+}

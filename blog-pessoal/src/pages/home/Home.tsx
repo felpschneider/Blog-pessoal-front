@@ -1,5 +1,6 @@
 import { Grid, Box, Typography, Button } from "@mui/material";
 import React from "react";
+import TabPostagem from "../../components/postagens/tabPostagens/TabPostagem";
 import "./Home.css";
 
 function Home() {
@@ -37,7 +38,7 @@ function Home() {
           </Box>
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}></Box>
-            <Button variant="outlined" className="botao">
+            <Button variant="outlined" className="btn">
               Ver Postagens
             </Button>
           </Box>
@@ -50,7 +51,9 @@ function Home() {
             height="350px"
           />
         </Grid>
-        <Grid xs={12} className="postagens"></Grid>
+        <Grid xs={12} className="postagens">
+          <TabPostagem/>
+        </Grid>
       </Grid>
     </>
   );

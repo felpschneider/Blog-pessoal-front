@@ -80,6 +80,7 @@ function CadastroUsuario() {
               name="nome"
               margin="normal"
               fullWidth
+              required
             />
             <TextField
               value={user.usuario}
@@ -90,6 +91,7 @@ function CadastroUsuario() {
               name="usuario"
               margin="normal"
               fullWidth
+              required
             />
             <TextField
               value={user.senha}
@@ -101,6 +103,7 @@ function CadastroUsuario() {
               margin="normal"
               type="password"
               fullWidth
+              required
             />
             <TextField
               value={confirmarSenha}
@@ -114,13 +117,12 @@ function CadastroUsuario() {
               margin="normal"
               type="password"
               fullWidth
+              required
             />
             <Box marginTop={2} textAlign="center">
-              <Link to="/login" className="text-decorator-none">
                 <Button type="submit" className="btn" size="medium">
                   Cadastrar
                 </Button>
-              </Link>
             </Box>
           </form>
         </Box>
