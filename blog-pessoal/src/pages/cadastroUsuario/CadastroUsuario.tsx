@@ -63,7 +63,7 @@ function CadastroUsuario() {
         }
 
     } else {
-        alert("Insira no miníno 8 caracteres na senha.")    // Mensagem que indica a quantidade minima de caracteres
+      alert("Insira no miníno 8 caracteres na senha.")    // Mensagem que indica a quantidade minima de caracteres
 
         setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
         setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha

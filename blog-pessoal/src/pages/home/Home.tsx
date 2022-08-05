@@ -1,9 +1,22 @@
 import { Grid, Box, Typography, Button } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
+import ModalPostagens from "../../components/postagens/modalPostagens/ModalPostagens";
 import TabPostagem from "../../components/postagens/tabPostagens/TabPostagem";
 import "./Home.css";
 
 function Home() {
+  let navigate = useNavigate();
+  const [token, setToken] = useLocalStorage("token");
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado");
+      navigate("/login");
+    }
+  }, [token]);
+
   return (
     <>
       <Grid
@@ -37,13 +50,16 @@ function Home() {
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">
-            <Box marginRight={1}></Box>
+            <Box marginRight={1}>
+              <ModalPostagens />
+            </Box>
+
             <Button variant="outlined" className="btn">
               Ver Postagens
             </Button>
           </Box>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item xs={6}>
           <img
             src="https://img.freepik.com/free-vector/rock-band-concept-illustration_114360-2835.jpg?w=740&t=st=1658934530~exp=1658935130~hmac=fac99ac1e4621381f643c7f5b3c23fc344be826c538b2d29ff9d08cea3766b17"
             alt=""
@@ -52,7 +68,7 @@ function Home() {
           />
         </Grid>
         <Grid xs={12} className="postagens">
-          <TabPostagem/>
+          <TabPostagem />
         </Grid>
       </Grid>
     </>
