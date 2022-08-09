@@ -1,48 +1,49 @@
-import { Grid, Box, Typography, TextField, Button,  } from "@mui/material";
+import { Grid, Box, Typography, TextField, Button } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import UserLogin from "../../models/UserLogin";
 import useLocalStorage from "react-use-localstorage";
-import { api,login } from "../../services/Service";
+import { api, login } from "../../services/Service";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/Actions";
 
 function Login() {
   let navigate = useNavigate();
-  const [token, setToken] = useLocalStorage('token');
-  const [userLogin, setUserLogin] = useState<UserLogin>(
-      {
-          id: 0,
-          nome: '',
-          usuario: '',
-          senha: '',
-          token: ''
-      }
-      )
-      function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+  const dispatch = useDispatch();
+  const [token, setToken] = useState("");
+  const [userLogin, setUserLogin] = useState<UserLogin>({
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    token: "",
+  });
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    setUserLogin({
+      ...userLogin,
+      [e.target.name]: e.target.value,
+    });
+  }
+  // Hook de efeito colateral
 
-          setUserLogin({
-              ...userLogin,
-              [e.target.name]: e.target.value
-          })
-      }
-      // Hook de efeito colateral
-      
-      useEffect(()=>{
-          if(token != ''){
-              navigate('/home')
-          }
-      }, [token])
+  useEffect(() => {
+    if (token != "") {
+      dispatch(addToken(token));
+      navigate("/home");
+    }
+  }, [token]);
 
-      async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-          e.preventDefault();
-          try{
-              await login(`/usuarios/logar`, userLogin, setToken)
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      await login(`/usuarios/logar`, userLogin, setToken);
 
-              alert('Usuário logado com sucesso!');
-          }catch(error){
-              alert('Dados do usuário inconsistentes. Erro ao logar!');
-          }
-      }
+      alert("Usuário logado com sucesso!");
+    } catch (error) {
+      alert("Dados do usuário inconsistentes. Erro ao logar!");
+    }
+  }
 
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
@@ -60,7 +61,8 @@ function Login() {
               Entrar
             </Typography>
             <TextField
-              value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              value={userLogin.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="usuario"
               label="Usuário"
               variant="outlined"
@@ -69,7 +71,8 @@ function Login() {
               fullWidth
             />
             <TextField
-               value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              value={userLogin.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="senha"
               label="Senha"
               variant="outlined"
@@ -79,11 +82,9 @@ function Login() {
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
-
-                <Button type="submit" className="btn">
-                  Logar
+              <Button type="submit" className="btn">
+                Logar
               </Button>
-              
             </Box>
           </form>
           <Box display="flex" justifyContent="center" marginTop={2}>
