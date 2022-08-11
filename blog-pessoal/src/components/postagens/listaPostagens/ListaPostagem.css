@@ -1,3 +1,32 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.cor-deletar-postagem{
+    background-color: #470000!important;
+  margin: 10px;
+  padding: 10px 40px !important;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s !important;
+  background-size: 200% auto;
+  color: aliceblue !important;
+  box-shadow: 0 0 20px aliceblue;
+  border-radius: 10px;
+  display: block;
+}
+
+.cor-atualizar-postagem{
+    background-color: #8A0013!important;
+      margin: 10px;
+      padding: 10px 40px !important;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.5s !important;
+      background-size: 200% auto;
+      color: aliceblue !important;
+      box-shadow: 0 0 20px aliceblue;
+      border-radius: 10px;
+      display: block;
+    
+}

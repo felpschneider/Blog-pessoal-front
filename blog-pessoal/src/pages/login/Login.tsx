@@ -7,6 +7,7 @@ import useLocalStorage from "react-use-localstorage";
 import { api, login } from "../../services/Service";
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/Actions";
+import { toast } from "react-toastify";
 
 function Login() {
   let navigate = useNavigate();
@@ -38,10 +39,25 @@ function Login() {
     e.preventDefault();
     try {
       await login(`/usuarios/logar`, userLogin, setToken);
-
-      alert("Usuário logado com sucesso!");
+      toast.success('Usuário logado com sucesso!', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
     } catch (error) {
-      alert("Dados do usuário inconsistentes. Erro ao logar!");
+      toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
     }
   }
 

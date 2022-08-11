@@ -2,6 +2,7 @@ import { Grid, Box, Typography, Button } from "@mui/material";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import ModalPostagens from "../../components/postagens/modalPostagens/ModalPostagens";
 import TabPostagem from "../../components/postagens/tabPostagens/TabPostagem";
 import { TokenState } from "../../store/tokens/TokensReducer";
@@ -15,7 +16,15 @@ function Home() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.warn("Você precisa estar logado!", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/login");
     }
   }, [token]);
@@ -57,18 +66,18 @@ function Home() {
               <ModalPostagens />
             </Box>
             <Link to="/postagens" className="text-decorator-none">
-            <Button variant="outlined" className="btn">
-              Ver Postagens
+              <Button variant="outlined" className="btn">
+                Ver Postagens
               </Button>
-              </Link>
+            </Link>
           </Box>
         </Grid>
         <Grid item xs={6}>
           <img
-            src="https://img.freepik.com/free-vector/rock-band-concept-illustration_114360-2835.jpg?w=740&t=st=1658934530~exp=1658935130~hmac=fac99ac1e4621381f643c7f5b3c23fc344be826c538b2d29ff9d08cea3766b17"
+            src="https://img.freepik.com/free-vector/rock-band-isometric-composition_1284-23938.jpg?w=740&t=st=1660169115~exp=1660169715~hmac=690c02b2c996150526177c1d24cfd6b4dc5ff3f293693681834181645a16bd62"
             alt=""
             width="500px"
-            height="350px"
+            height="500px"
           />
         </Grid>
         <Grid xs={12} className="postagens">

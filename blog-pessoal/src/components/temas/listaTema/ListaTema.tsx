@@ -7,13 +7,13 @@ import {
   CardContent,
   Button,
   Typography,
-  Alert,
 } from "@mui/material";
 import "./ListaTema.css";
 import Tema from "../../../models/Tema";
 import { busca } from "../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/TokensReducer";
+import { toast } from "react-toastify";
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([]);
@@ -24,7 +24,15 @@ function ListaTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert('Você precisa estar logado')
+      toast.success('Você precisa estar logado!', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
       navigate("/login");
     }
   }, [token]);

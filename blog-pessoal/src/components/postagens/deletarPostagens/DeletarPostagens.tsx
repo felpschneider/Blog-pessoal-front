@@ -6,6 +6,7 @@ import { buscaId, deleteId } from '../../../services/Service';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarPostagem() {
   let navigate = useNavigate();
@@ -16,8 +17,16 @@ function DeletarPostagem() {
   const [post, setPosts] = useState<Postagem>()
 
   useEffect(() => {
-      if (token == "") {
-          alert("Você precisa estar logado")
+    if (token == "") {
+      toast.warn('Você precisa estar logado!', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
           navigate("/login")
   
       }
@@ -44,7 +53,15 @@ function DeletarPostagem() {
               'Authorization': token
             }
           });
-          alert('Postagem deletada com sucesso');
+          toast.success('Postagem deletada com sucesso!', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            });
         }
       
         function nao() {
